@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0a0a12" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <title>Happy 21st Birthday Khushi 💕</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Playfair+Display:wght@400;600;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="custom-cursor"></div>
+  <div class="cursor-trail"></div>
+
+  <!-- Music Toggle -->
+  <button class="music-toggle" id="musicToggle" aria-label="Toggle music">
+    <span class="music-icon">🔊</span>
+    <span class="music-label">Music ON</span>
+  </button>
+  <audio id="bgMusic" loop preload="auto">
+    <source src="public/music/birthday.mp3" type="audio/mpeg" />
+  </audio>
+  <audio id="voiceMessage" preload="auto">
+    <source src="public/message.mp3" type="audio/mpeg" />
+    <source src="voice/message.MP3" type="audio/mpeg" />
+    <source src="voice/message.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- 1. BGMI Style Intro -->
+  <section id="intro" class="intro-screen">
+    <div class="intro-bg intro-bg-image" id="introBgImage"></div>
+    <div class="intro-bg intro-bg-overlay">
+      <div class="smoke"></div>
+      <div class="neon-grid"></div>
+    </div>
+    <div class="intro-content">
+      <p class="intro-line intro-player">PLAYER JOINED</p>
+      <h1 class="intro-username" id="introUsername">KHUSHI_21</h1>
+      <p class="intro-mission">MISSION: BIRTHDAY SURPRISE</p>
+      <button class="btn-start" id="btnStart">START MISSION 🎮</button>
+    </div>
+    <div class="flash-overlay" id="flashOverlay"></div>
+  </section>
+
+  <!-- Lockscreen (after START MISSION) -->
+  <section id="lockscreen" class="lockscreen hidden">
+    <img class="lockscreen-bg" id="lockscreenBg" src="images/background.jpg" alt="" />
+    <div class="lockscreen-overlay"></div>
+    <div class="lockscreen-content">
+      <p class="lockscreen-date">25 February</p>
+      <h1 class="lockscreen-title">Happy Birthday Khushi 🎂</h1>
+      <p class="lockscreen-hint"><span class="swipe-icon">↑</span> Swipe up to open</p>
+    </div>
+  </section>
+
+  <!-- Main Content (after lockscreen swipe) -->
+  <main id="mainContent" class="main-content hidden">
+    <!-- Balloons (global floating background) -->
+    <div class="balloons-bg" id="balloonsBg"></div>
+
+    <!-- 2. Neon Name -->
+    <section id="neonSection" class="section section-neon">
+      <div class="hearts-bg" id="heartsBg"></div>
+      <h1 class="neon-title" id="neonTitle">
+        <span class="neon-letter" data-letter="K">K</span>
+        <span class="neon-letter" data-letter="H">H</span>
+        <span class="neon-letter" data-letter="U">U</span>
+        <span class="neon-letter" data-letter="S">S</span>
+        <span class="neon-letter" data-letter="H">H</span>
+        <span class="neon-letter" data-letter="I">I</span>
+      </h1>
+      <p class="neon-subtitle">Turning 21 on 25 February</p>
+    </section>
+
+    <!-- 3. Cake Section -->
+    <section id="cakeSection" class="section section-cake">
+      <h2 class="section-heading">Happy 21st Birthday Khushi 🎂</h2>
+      <div class="cake-container">
+        <canvas id="cakeCanvas"></canvas>
+        <div class="cake-ui">
+          <button class="btn-cut" id="btnCut">Cut The Cake ✨</button>
+          <p class="make-wish hidden" id="makeWish">Make a Wish Khushi 💕</p>
+          <div class="wish-input-wrap hidden" id="wishInputWrap">
+            <label class="wish-label">Type Your Wish ✨</label>
+            <input type="text" class="wish-input" id="wishInput" placeholder="Your wish..." maxlength="100" />
+            <button class="btn-send-wish" id="btnSendWish">Send Wish</button>
+          </div>
+          <p class="wish-sent hidden" id="wishSent">Wish Sent To The Stars ⭐</p>
+        </div>
+      </div>
+      <div id="confettiContainer" class="confetti-container"></div>
+    </section>
+
+    <!-- A Message Just For You -->
+    <section id="messageVoiceSection" class="section section-voice">
+      <h2 class="section-heading">A Message Just For You 🎧</h2>
+      <button class="btn-play-message" id="btnPlayMessage" type="button">
+        <span class="btn-play-icon">▶</span>
+        <span class="btn-play-text">Play My Message from Kaushalll</span>
+      </button>
+      <p class="voice-status" id="voiceStatus" aria-live="polite"></p>
+    </section>
+
+    <!-- Why Khushi Is Special -->
+    <section id="specialSection" class="section section-special">
+      <h2 class="section-heading">Why Khushi Is Special 💖</h2>
+      <div class="special-cards">
+        <p class="special-line" data-delay="0">Your smile is beautiful</p>
+        <p class="special-line" data-delay="2">You make everyone happy</p>
+        <p class="special-line" data-delay="4">You are kind</p>
+        <p class="special-line" data-delay="6">You are strong</p>
+        <p class="special-line" data-delay="8">You are unique</p>
+      </div>
+    </section>
+
+    <!-- 4. Things Khushi Loves -->
+    <section id="lovesSection" class="section section-loves">
+      <h2 class="section-heading">Things Khushi Loves 💕</h2>
+      <div class="loves-grid">
+        <div class="love-card" data-card="1">
+          <span class="card-emoji">🧇</span>
+          <h3>Waffles</h3>
+          <p>Sweet like waffles</p>
+        </div>
+        <div class="love-card" data-card="2">
+          <span class="card-emoji">🌹</span>
+          <h3>Roses</h3>
+          <p>Beautiful like roses</p>
+        </div>
+        <div class="love-card" data-card="3">
+          <span class="card-emoji">💍</span>
+          <h3>Bangles</h3>
+          <p>Sparkling like bangles</p>
+        </div>
+        <div class="love-card" data-card="4">
+          <span class="card-emoji">🎮</span>
+          <h3>BGMI</h3>
+          <p>BGMI Champion</p>
+        </div>
+        <div class="love-card" data-card="5">
+          <span class="card-emoji">🏏</span>
+          <h3>Dhoni</h3>
+          <p>Forever Dhoni Fan</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Dhoni Section -->
+    <section id="dhoniSection" class="section section-dhoni">
+      <div class="dhoni-bg"></div>
+      <div class="cricket-ball" id="cricketBall"></div>
+      <h2 class="section-heading">For The Biggest Dhoni Fan 🏏</h2>
+      <p class="dhoni-quote">"Just like Dhoni finishes matches,<br />You finish my happiness with your smile."</p>
+      <div class="jersey-number">7</div>
+    </section>
+
+    <!-- 6. Photo Slideshow (Video Mode) - 6 photos from public/images -->
+    <section id="slideshowSection" class="section section-slideshow">
+      <h2 class="section-heading">Beautiful Khushi 💖</h2>
+      <div class="slideshow-container">
+        <div class="slideshow-track">
+          <div class="slideshow-slide slide-focus-top active"><img src="public/images/1.jpeg" alt="Khushi 1" /></div>
+          <div class="slideshow-slide"><img src="public/images/2.jpeg" alt="Khushi 2" /></div>
+          <div class="slideshow-slide"><img src="public/images/3.jpeg" alt="Khushi 3" /></div>
+          <div class="slideshow-slide"><img src="public/images/4.jpeg" alt="Khushi 4" /></div>
+          <div class="slideshow-slide slide-focus-top slide-five-halfbody"><img src="public/images/5.jpeg" alt="Khushi 5" /></div>
+          <div class="slideshow-slide"><img src="public/images/6.jpeg" alt="Khushi 6" /></div>
+        </div>
+      </div>
+      <div class="slideshow-end hidden" id="slideshowEnd">
+        <div id="fireworksContainer" class="fireworks-container"></div>
+        <h2 class="slideshow-end-title">Happy 21st Birthday Khushi 🎂</h2>
+      </div>
+    </section>
+
+    <!-- 7. 3D Floating Scene (Three.js) -->
+    <section id="threeSection" class="section section-three">
+      <canvas id="threeCanvas"></canvas>
+      <div class="three-overlay"></div>
+    </section>
+
+    <!-- 8. Romantic Message -->
+    <section id="messageSection" class="section section-message">
+      <div class="glowing-heart" id="glowingHeart">❤️</div>
+      <h2 class="section-heading">For You Khushi 💕</h2>
+      <div class="message-box">
+        <p>Khushi,</p>
+        <p>You are truly special and beautiful.<br />Your smile makes everything brighter.</p>
+        <p>May your 21st birthday bring happiness,<br />love and endless smiles.</p>
+        <p class="sign-off">Happy Birthday Khushi ❤️</p>
+      </div>
+    </section>
+
+    <!-- 9. Final Surprise -->
+    <section id="finalSection" class="section section-final">
+      <div class="final-dark"></div>
+      <div class="roses-fall" id="rosesFall"></div>
+      <div class="final-text">
+        <p class="final-line" id="final1">You Are Special Khushi ❤️</p>
+        <p class="final-line" id="final2">Happy 21st Birthday 🎂</p>
+        <p class="final-line" id="final3">Always Keep Smiling 💕</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
