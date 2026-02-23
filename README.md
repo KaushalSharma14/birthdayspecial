@@ -1,6 +1,6 @@
-# 🎂 Happy 21st Birthday Khushi
+# 🎂 Happy 20th Birthday Khushi
 
-A premium animated birthday surprise website for Khushi's 21st Birthday (25 February).
+A premium animated birthday surprise website for Khushi's 20th Birthday (25 February).
 
 ## Setup – where to put your files
 
@@ -51,7 +51,7 @@ Push this folder to GitHub, import the repo in [Vercel](https://vercel.com), and
 ## Features
 
 - BGMI intro, fake lockscreen (swipe up), neon “KHUSHI”, floating balloons
-- 3D cake with 21 candles, make a wish box, voice message (music pauses while it plays)
+- 3D cake with 20 candles, make a wish box, voice message (music pauses while it plays)
 - Why Khushi Is Special, Things Khushi Loves, Dhoni section
 - Photo slideshow with fireworks ending, romantic message, final surprise
 - Music toggle, custom cursor, mobile responsive

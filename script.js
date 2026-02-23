@@ -1,4 +1,4 @@
-/* ===== BIRTHDAY SURPRISE - KHUSHI 21 ===== */
+/* ===== BIRTHDAY SURPRISE - KHUSHI 20 ===== */
 (function () {
   'use strict';
 
@@ -182,7 +182,7 @@
     gsap.to($('.btn-start'), { opacity: 0 });
     if (introUsername) introUsername.textContent = '';
     setTimeout(() => {
-      typewriter(introUsername, 'KHUSHI_21', 120, () => {
+      typewriter(introUsername, 'KHUSHI_20', 120, () => {
         gsap.to($('.intro-mission'), { opacity: 1, duration: 0.6 });
         gsap.to($('.btn-start'), { opacity: 1, duration: 0.6 });
       });
@@ -463,13 +463,13 @@
     cakeScene.add(cakeGroup);
     cakeMesh = cakeGroup;
 
-    // 21 Candles (symbolic for 21st birthday)
+    // 20 Candles (symbolic for 20th birthday)
     const candleGeo = new THREE.CylinderGeometry(0.04, 0.04, 0.35, 12);
     const candleMat = new THREE.MeshPhongMaterial({ color: 0xffe4e1 });
     const flameMat = new THREE.MeshPhongMaterial({ color: 0xffaa00, emissive: 0xff6600 });
     const topY = 1.05 + 0.35 / 2;
-    for (let i = 0; i < 21; i++) {
-      const angle = (i / 21) * Math.PI * 2;
+    for (let i = 0; i < 20; i++) {
+      const angle = (i / 20) * Math.PI * 2;
       const r = 0.5 + (i % 2) * 0.25;
       const candle = new THREE.Mesh(candleGeo.clone(), candleMat);
       candle.position.set(Math.cos(angle) * r, topY, Math.sin(angle) * r);
